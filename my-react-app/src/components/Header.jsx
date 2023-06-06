@@ -1,11 +1,7 @@
 function Header() {
     return (
       <nav>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-        </ul>
+            <h1 href="/">TO-DO-IT APP</h1>
       </nav>
     );
   }

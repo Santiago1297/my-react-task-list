@@ -1,21 +1,28 @@
-// import './App.css'
+import './App.css'
 import Header from "./components/Header";
-import { MovieList } from "./components/MovieList";
+import { TaskList } from "./components/TaskList";
 
-const latestMovies = [
-  { name: "Avatar 2" },
-  { name: "Matrix 4" },
-  { name: "Thor" },
+const Tasks = [
+  { name: "Sacar al perro" },
+  { name: "Lavar los platos" },
+  { name: "Estudiar React" },
 ];
 
-const childrenMovies = [{ name: "Minions" }, { name: "Alice in Wonderland" }];
+// const childrenTasks = [{ name: "Minions" }, { name: "Alice in Wonderland" }];
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <MovieList list={latestMovies} />
-      <MovieList list={childrenMovies} />
+      <form className="forma">
+        <label className="ingresar">
+          Ingresa nueva tarea: 
+          <input type="text" name="name" />
+        </label>
+        <input className="agregarTarea" type="submit" value="+" />
+      </form>
+      <TaskList list={Tasks} />
+      {/* <TaskList list={childrenTasks} /> */}
     </div>
   );
 }
