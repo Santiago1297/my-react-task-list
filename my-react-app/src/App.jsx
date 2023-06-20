@@ -1,28 +1,38 @@
-import './App.css'
+import "./App.css";
 import Header from "./components/Header";
+import { TaskInput } from "./components/TaskInput";
+import { useState, useEffect } from "react";
 import { TaskList } from "./components/TaskList";
 
-const Tasks = [
-  { name: "Sacar al perro" },
-  { name: "Lavar los platos" },
-  { name: "Estudiar React" },
-];
-
-// const childrenTasks = [{ name: "Minions" }, { name: "Alice in Wonderland" }];
-
 function App() {
+  const [tasks, setTasks] = useState([
+    { description: "Sacar al perro", isCompleted: false },
+    { description: "Lavar los platos", isCompleted: false },
+    { description: "Estudiar React", isCompleted: false },
+  ]);
+
+  const submitTask = (description) => {
+    if (!tasks.find((task) => task.description === description)) {
+      setTasks([...tasks, { description: description, isCompleted: false }]);
+    }
+  };
+
+  useEffect(() => {
+    let data = localStorage.getItem("tasks");
+    if (data) {
+      setTasks(JSON.parse(data));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
   return (
     <div className="App">
       <Header />
-      <form className="forma">
-        <label className="ingresar">
-          Ingresa nueva tarea: 
-          <input type="text" name="name" />
-        </label>
-        <input className="agregarTarea" type="submit" value="+" />
-      </form>
-      <TaskList list={Tasks} />
-      {/* <TaskList list={childrenTasks} /> */}
+      <TaskInput submitTask={submitTask} />
+      <TaskList tasks={tasks} />
     </div>
   );
 }

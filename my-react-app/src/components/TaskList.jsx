@@ -1,13 +1,14 @@
 import { Task } from "./Task";
 
 export const TaskList = (props) => {
-  const { list } = props;
-
+  const { tasks } = props;
   return (
-    <article>
-      {list.map((taskName) => (
-        <Task name={taskName.name} />
+    <ul>
+      {tasks.map((task) => (
+        <div>
+          <Task key={task.description} description={task.description} />
+        </div>
       ))}
-    </article>
+    </ul>
   );
 };
