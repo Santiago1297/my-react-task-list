@@ -10,14 +10,14 @@ export const TaskInput = (props) => {
   };
 
   return (
-    <form className="forma" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <input
-        placeholder="Ingresa nueva tarea"
+        placeholder="Type new task"
         type="text"
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
       />
-      <button className="agregarTarea">+</button>
+      <button className="newTask">+</button>
     </form>
   );
 };

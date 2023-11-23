@@ -1,38 +1,20 @@
 import "./App.css";
 import Header from "./components/Header";
 import { TaskInput } from "./components/TaskInput";
-import { useState, useEffect } from "react";
 import { TaskList } from "./components/TaskList";
+import { useTaskHelper } from "./Hooks/useTaskHelper";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    { description: "Sacar al perro", isCompleted: false },
-    { description: "Lavar los platos", isCompleted: false },
-    { description: "Estudiar React", isCompleted: false },
-  ]);
-
-  const submitTask = (description) => {
-    if (!tasks.find((task) => task.description === description)) {
-      setTasks([...tasks, { description: description, isCompleted: false }]);
-    }
+  const [tasks, submitTask, deleteTask] = useTaskHelper();
+  const handleSubmitTask = (description) => {
+    submitTask(description);
   };
-
-  useEffect(() => {
-    let data = localStorage.getItem("tasks");
-    if (data) {
-      setTasks(JSON.parse(data));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
 
   return (
     <div className="App">
       <Header />
-      <TaskInput submitTask={submitTask} />
-      <TaskList tasks={tasks} />
+      <TaskInput submitTask={handleSubmitTask} />
+      <TaskList/>
     </div>
   );
 }
