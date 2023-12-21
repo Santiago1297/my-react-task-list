@@ -1,21 +1,27 @@
-import { useState, useEffect } from "react";
+import { useTaskHelper } from "../Hooks/useTaskHelper";
 
-export const TaskInput = (props) => {
-  const [inputText, setInputText] = useState("");
+export const TaskInput = ({todo, task, setTask, inputText, setInputText}) => {
+  const {submitTask} = useTaskHelper(todo, task, setTask, inputText, setInputText);
+
+  const handleChanged = (e) => {
+    e.preventDefault();
+    setInputText(e.target.value)
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.submitTask(inputText);
-    setInputText("");
+    setTask(submitTask);
   };
 
   return (
     <form className="form" onSubmit={handleSubmit}>
       <input
+        className="newTaskWrite"
         placeholder="Type new task"
         type="text"
         value={inputText}
-        onChange={(e) => setInputText(e.target.value)}
+        onChange={handleChanged}
+        required
       />
       <button className="newTask">+</button>
     </form>

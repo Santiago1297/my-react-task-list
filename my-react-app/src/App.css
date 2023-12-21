@@ -31,3 +31,11 @@
   margin-top: 10px;
   background-color: #6000F0;
 }
+
+.newTaskWrite {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-left: 70px;
+  background-color: #000000;
+}

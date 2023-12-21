@@ -1,16 +1,14 @@
 import { Task } from "./Task";
-import { useTaskHelper } from "../Hooks/useTaskHelper";
 
-export const TaskList = (props) => {
-  const [tasks, submitTask, deleteTask] = useTaskHelper();
+export const TaskList = ({task, setTask, inputText, setInputText}) => {
 
   return (
     <ul>
-      {tasks.map((task) => (
-        <div key={task.description}>
-          <Task description={task.description} />
-        </div>
-      ))}
+      {task.map((todo) => {
+        return(
+          <Task key={todo.id} todo={todo} task={task} setTask={setTask} inputText={inputText} setInputText={setInputText}/>
+        )
+      })}
     </ul>
   );
 };

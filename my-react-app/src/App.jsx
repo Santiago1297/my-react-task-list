@@ -1,20 +1,20 @@
+import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import { TaskInput } from "./components/TaskInput";
 import { TaskList } from "./components/TaskList";
-import { useTaskHelper } from "./Hooks/useTaskHelper";
+import { useLocalStorage } from "./Hooks/useLocalStorage";
 
 function App() {
-  const [tasks, submitTask, deleteTask] = useTaskHelper();
-  const handleSubmitTask = (description) => {
-    submitTask(description);
-  };
+  const {getLocalStorage} = useLocalStorage("task");
+  const [task, setTask] = useState(getLocalStorage());
+  const [inputText, setInputText] = useState("");
 
   return (
     <div className="App">
-      <Header />
-      <TaskInput submitTask={handleSubmitTask} />
-      <TaskList/>
+      <Header/>
+      <TaskInput todo="" task={task} setTask={setTask} inputText={inputText} setInputText={setInputText}/>
+      <TaskList task={task} setTask={setTask} inputText={inputText} setInputText={setInputText}/>
     </div>
   );
 }
