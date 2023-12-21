@@ -11,6 +11,15 @@
   justify-content: space-between;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 10px;
+  background-color: #6000F0;
+  border-radius: 8px;
+}
+
 .Tasks {
   display: flex;
   justify-content: space-between;
@@ -29,7 +38,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-  background-color: #6000F0;
+  /* background-color: #6000F0; */
 }
 
 .newTaskWrite {
@@ -38,4 +47,8 @@
   margin-top: 10px;
   margin-left: 70px;
   background-color: #000000;
+}
+
+a{
+  color: aqua;
 }
