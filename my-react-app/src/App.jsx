@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import { TaskInput } from "./components/TaskInput";
 import { TaskList } from "./components/TaskList";
 import { useLocalStorage } from "./Hooks/useLocalStorage";
+import { useTaskHelper } from "./Hooks/useTaskHelper";
 
 function App() {
   const {getLocalStorage} = useLocalStorage("task");

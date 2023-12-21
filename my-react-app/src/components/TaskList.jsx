@@ -2,7 +2,12 @@ import { Task } from "./Task";
 
 export const TaskList = ({task, setTask, inputText, setInputText}) => {
 
+  const handleDeleteAllTasks = () => {
+    setTask([]);
+  }
+  
   return (
+    <>
     <ul>
       {task.map((todo) => {
         return(
@@ -10,5 +15,9 @@ export const TaskList = ({task, setTask, inputText, setInputText}) => {
         )
       })}
     </ul>
+    {
+      <button onClick={handleDeleteAllTasks}>Delete all tasks</button>
+    }
+    </>
   );
 };

@@ -6,7 +6,7 @@ import { useState } from "react";
 export const Task = ({todo, task, setTask, inputText, setInputText}) => {
   const [edit, setEdit] = useState(false)
   const [newDescription, setNewDescription] = useState(todo.description);
-  const {deleteTask, updateTask, completeTask} = useTaskHelper(
+  const {deleteTask, updateTask, completeTask, deleteAllTasks} = useTaskHelper(
     todo,
     task,
     setTask,

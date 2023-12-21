@@ -22,6 +22,8 @@ export const TaskInput = ({todo, task, setTask, inputText, setInputText}) => {
         value={inputText}
         onChange={handleChanged}
         required
+        minLength={3}
+        maxLength={15}
       />
       <button className="newTask">+</button>
     </form>
