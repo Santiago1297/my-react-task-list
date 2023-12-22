@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLocalStorage } from './useLocalStorage';
 
 export function useTaskHelper(todo, task, setTask, inputText, setInputText, newDescription) {
@@ -15,18 +15,18 @@ export function useTaskHelper(todo, task, setTask, inputText, setInputText, newD
     }
   
     const deleteTask = () => {
-      return task.filter(({id}) => id !== todo.id);
+      return task.filter(({id}) => id !== todo?.id);
     };
   
     const updateTask = () => {
       return task.map((taskItem) =>
-      taskItem.id === todo.id ? { ...taskItem, description: newDescription } : taskItem
+      taskItem.id === todo?.id ? { ...taskItem, description: newDescription } : taskItem
       );
     };
 
   const completeTask = () => {
     return task.map((taskItem) =>
-    taskItem.id === todo.id ? { ...taskItem, isComplete: !taskItem.isComplete } : taskItem
+    taskItem.id === todo?.id ? { ...taskItem, isComplete: !taskItem.isComplete } : taskItem
     )
   }
 

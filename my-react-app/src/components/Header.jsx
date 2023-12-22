@@ -1,13 +1,18 @@
 import "../App.css";
+import { Heading, Link, Stack } from '@chakra-ui/react'
 
 function Header() {
     return (
-      <nav>
-            <h1>TO-DO-IT APP</h1>
-            <a href="/">Home  /</a>
-            <a href="/SobreNosotros">  Sobre Nosotros  /</a>
-            <a href="/Tareas">  Tareas  </a>
-      </nav>
+      <Stack gap={7}>
+        <Heading color="white" as='h1' size='4xl' noOfLines={1}>
+        TO-DO-IT APP
+        </Heading>
+        <Stack direction={"row"} justifyContent={"center"} gap={10}>
+          <Link color="aqua" href="/">Home</Link>
+          <Link color="aqua" href="/SobreNosotros">Sobre Nosotros</Link>
+          <Link color="aqua" href="/Tareas">Tareas</Link>
+        </Stack>
+      </Stack>
     );
   }
   

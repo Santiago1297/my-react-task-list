@@ -1,4 +1,5 @@
 import { useTaskHelper } from "../Hooks/useTaskHelper";
+import { Input, Button, Stack } from '@chakra-ui/react'
 
 export const TaskInput = ({todo, task, setTask, inputText, setInputText}) => {
   const {submitTask} = useTaskHelper(todo, task, setTask, inputText, setInputText);
@@ -15,17 +16,19 @@ export const TaskInput = ({todo, task, setTask, inputText, setInputText}) => {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <input
-        className="newTaskWrite"
-        placeholder="Type new task"
-        type="text"
-        value={inputText}
-        onChange={handleChanged}
-        required
-        minLength={3}
-        maxLength={15}
-      />
-      <button className="newTask">+</button>
+    <Stack direction={"row"} alignItems={"center"} justifyContent={"center"}>
+    <Input background={"white"}
+            className="newTaskWrite"
+            placeholder="Type new task"
+            type="text"
+            value={inputText}
+            onChange={handleChanged}
+            required
+            minLength={3}
+            maxLength={15}
+          />
+          <button className="newTask" style={{backgroundColor: "white", padding: "0.5rem"}}>+</button>
+    </Stack>
     </form>
   );
 };

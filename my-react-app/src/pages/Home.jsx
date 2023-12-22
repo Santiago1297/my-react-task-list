@@ -1,9 +1,10 @@
+import { Heading } from '@chakra-ui/react'
 import React from 'react'
 
 export const Home = () => {
   return (
-    <div>
-        <h1>¡Hola, bienvenido!</h1>
-    </div>
+      <Heading color="white" as='h1' size='4xl' noOfLines={1}>
+      ¡Hola, bienvenido!
+      </Heading>
   )
 }
